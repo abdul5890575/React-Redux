@@ -18,7 +18,7 @@ const ClaimsDepartment = (oldList = [] , action) => {
   
 
   const polices = (listofPolices = [] , action) => {
-    if (action.type === 'CREATE_CLAIM') {
+    if (action.type === 'CREATE_POLICY') {
       return [...lisofPolices , action.payload.name];
     } else if(action.type === 'DELETE_POLICY') {
       return listofPolices.filter(name=> name !== action.payload.name)
