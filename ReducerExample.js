@@ -16,3 +16,14 @@ const ClaimsDepartment = (oldList = [] , action) => {
     return money
   }
   
+
+  const polices = (listofPolices = [] , action) => {
+    if (action.type === 'CREATE_CLAIM') {
+      return [...lisofPolices , action.payload.name];
+    } else if(action.type === 'DELETE_POLICY') {
+      return listofPolices.filter(name=> name !== action.payload.name)
+    }
+    return listofPolices
+  }
+  
+  
