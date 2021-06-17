@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { SelectSong } from '../actions'
 
 class SongList extends React.Component {
     renderList() {
@@ -7,8 +8,9 @@ class SongList extends React.Component {
             return (
                 <div className='item' key={song.title}>
                     <div className='right floated content'>
-                        <button className='ui button primary'>
-                            Select
+                        <button className='ui button primary'
+                          onClick={()=>this.props.SelectSong(song)}>
+                          Select
                         </button>
                     </div>
                     <div className='content'>
@@ -20,7 +22,7 @@ class SongList extends React.Component {
     }
     
     render() {
-        console.log('ssss', this.props)
+        // console.log('ssss', this.props)
         return <div className='ui divided list'>{this.renderList()}</div>
     }
 }
@@ -28,9 +30,11 @@ class SongList extends React.Component {
 //pulling data from store
 //will be passed to class above as this.props => { songs: state.songs }
 const mapStateToProps = (state)=> {
-    //console.log(state)
+    console.log(state)
   return { songs: state.songs }
 }
 
 //when calling function within function connect example
-export default connect(mapStateToProps)(SongList)
+// need connect to get action creators aswell
+// connect passes everyting inside to component as prop
+export default connect(mapStateToProps, {SelectSong})(SongList)
