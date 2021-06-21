@@ -3,8 +3,20 @@ import { connect } from 'react-redux'
 
 // make fuction component for connect so other example (we can do either or)
 
-const songDetail = (props)=>{
-  return <div>Song detail</div>
+const songDetail = ({song})=>{
+    if (!song) {
+        return  <div>Select a song</div>
+     } else {
+        return (
+            <div>
+            <h3> Details for</h3>
+            <p>Title: {song.title}
+            <br/>
+               Duration : {song.duration} 
+            </p>
+           </div>
+        )   
+     }
 }
 
 const mapStateToProps = (state) =>{
