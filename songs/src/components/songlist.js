@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { SelectSong } from '../actions'
 
+// When we call action creator it runs reducers byitself
 class SongList extends React.Component {
     renderList() {
         return this.props.songs.map((song)=>{
